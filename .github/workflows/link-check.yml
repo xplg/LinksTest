@@ -23,7 +23,7 @@ jobs:
 
     - name: Run Lychee to check for broken links
       run: |
-        lychee --verbose --include-external --format markdown \
+        lychee --verbose --format markdown \
         --glob "*.md" --glob "*.json" --glob "*.js" --glob "*.yaml" \
         --glob "*.xml" --glob "*.jsp" --glob "*.htm" --glob "*.html" \
         --glob "*.properties" .
