@@ -16,4 +16,4 @@ jobs:
     - name: Run Lychee link checker
       uses: lycheeverse/lychee-action@v1
       with:
-        args: --verbose
+        args: --verbose ./  # Scans the entire repository
