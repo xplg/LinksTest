@@ -21,9 +21,9 @@ jobs:
         source $HOME/.cargo/env
         cargo install lychee
 
-    - name: Run Lychee on multiple file types
+    - name: Run Lychee to check for broken links
       run: |
-        find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.js" -o -name "*.yaml" -o -name "*.xml" -o -name "*.jsp" -o -name "*.htm" -o -name "*.html" -o -name "*.properties" \) | while read -r file; do
-          echo "Checking $file"
-          lychee --verbose "$file"
-        done
+        lychee --verbose --include-external --format markdown \
+        --glob "*.md" --glob "*.json" --glob "*.js" --glob "*.yaml" \
+        --glob "*.xml" --glob "*.jsp" --glob "*.htm" --glob "*.html" \
+        --glob "*.properties" .
