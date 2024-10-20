@@ -21,6 +21,11 @@ jobs:
         source $HOME/.cargo/env
         cargo install lychee
 
+    - name: List all target files
+      run: |
+        echo "Listing all target files:"
+        find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.js" -o -name "*.yaml" -o -name "*.xml" -o -name "*.jsp" -o -name "*.htm" -o -name "*.html" -o -name "*.properties" \)
+
     - name: Run Lychee to check for broken links
       run: |
         lychee --verbose --format markdown .
