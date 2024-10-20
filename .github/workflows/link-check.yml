@@ -26,6 +26,9 @@ jobs:
         echo "Listing all target files:"
         find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.js" -o -name "*.yaml" -o -name "*.xml" -o -name "*.jsp" -o -name "*.htm" -o -name "*.html" -o -name "*.properties" \)
 
-    - name: Run Lychee to check for broken links
+    - name: Run Lychee to check for broken links in all content
       run: |
-        lychee --verbose --format markdown .
+        find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.js" -o -name "*.yaml" -o -name "*.xml" -o -name "*.jsp" -o -name "*.htm" -o -name "*.html" -o -name "*.properties" \) | while read -r file; do
+          echo "Checking $file"
+          cat "$file" | lychee --verbose --no-progress --include-external --stdin
+        done
