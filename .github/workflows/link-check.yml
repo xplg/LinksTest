@@ -13,7 +13,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Run Lychee link checker
-      uses: lycheeverse/lychee-action@v1
-      with:
-        args: -- --verbose --file-types .md,.json,.js,.yaml,.xml,.jsp,.htm,.html,.properties ./  # Passes --file-types as a value
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install curl
+        curl -sSf https://sh.rustup.rs | sh -s -- -y
+        source $HOME/.cargo/env
+        cargo install lychee
+
+    - name: Run Lychee on multiple file types
+      run: |
+        find . -type f \( -name "*.md" -o -name "*.json" -o -name "*.js" -o -name "*.yaml" -o -name "*.xml" -o -name "*.jsp" -o -name "*.htm" -o -name "*.html" -o -name "*.properties" \) -print0 | xargs -0 lychee --verbose
+``
