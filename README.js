@@ -1,12 +1,1 @@
-# LinksTest
-https://jet.xplg.com
-
-http://wik.xpolog.com
-# LinksTest
-https://jet.xplg.com
-
-http://wik.xpolog.com
-# LinksTest
-https://jet.xplg.com
-
-http://wik.xpolog.com
+https://id.xplg.com/xplg/product/redirects.jsp?redirectRequest=download 
